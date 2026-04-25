@@ -11,4 +11,8 @@
 //   "ios_url": "https:// apps.apple.com /app/...",
 //   "release_notes": "Bug fixes and improvements"
 // }
-const String kAppUpdateManifestUrl = '';
+//
+// Live manifest (public repo, main branch): bump `build` above pubspec +N when you ship.
+// APK: attach `app-release.apk` to a GitHub Release whose tag matches the URL below.
+const String kAppUpdateManifestUrl =
+    'https://raw.githubusercontent.com/mostafaineista-rgb/salat_pro/main/docs/update_manifest.json';

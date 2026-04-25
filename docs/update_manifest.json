@@ -1,0 +1,6 @@
+{
+  "version": "1.0.1",
+  "build": 2,
+  "android_apk_url": "https://github.com/mostafaineista-rgb/salat_pro/releases/download/v1.0.1/app-release.apk",
+  "release_notes": "Salat Pro — match this build to pubspec version line (e.g. 1.0.1+2). Raise \"build\" and attach a new APK to a new Release when you ship an update."
+}
