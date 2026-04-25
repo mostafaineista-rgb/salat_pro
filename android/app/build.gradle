@@ -1,0 +1,118 @@
+plugins {
+    id "com.android.application"
+    id "org.jetbrains.kotlin.android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace "com.salatpro.salat_pro"
+    compileSdk 36
+    ndkVersion flutter.ndkVersion
+
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    defaultConfig {
+        applicationId "com.salatpro.salat_pro"
+        minSdkVersion flutter.minSdkVersion
+        targetSdk 36
+        // Synced with pubspec.yaml (version: x.y.z+build) — was hardcoded and always showed 1.0.0.
+        versionCode flutter.versionCode
+        versionName flutter.versionName
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.debug
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+        }
+    }
+}
+
+flutter {
+    source '../..'
+}
+
+/// Mirrors [AdhanSoundCatalog._rawResourceName] in Dart — Android raw resource names must be
+/// [a-z][a-z0-9_]*. Keep both implementations in sync when tweaking the rules.
+String sanitizeAdhanName(String base) {
+    String s = base.toLowerCase()
+    s = s.replaceAll(/[^a-z0-9_]/, '_')
+    s = s.replaceAll(/_+/, '_')
+    s = s.replaceAll(/^_|_$/, '')
+    if (!(s ==~ /^[a-z].*/)) {
+        s = 'adhan_' + s
+    }
+    return s
+}
+
+tasks.register('syncAdhanSounds') {
+    description = 'Copies assets/sounds/*.{mp3,m4a,aac,wav,ogg} to res/raw/<sanitized>.<ext> so ' +
+            'the Android notification service can reference each clip as a raw resource.'
+    def adhanAssetsDir = file("${rootDir}/../assets/sounds")
+    def adhanRawDir = file("src/main/res/raw")
+    def audioExts = ['mp3', 'm4a', 'aac', 'wav', 'ogg']
+    inputs.dir(adhanAssetsDir)
+    outputs.dir(adhanRawDir)
+    doLast {
+        if (!adhanRawDir.exists()) {
+            adhanRawDir.mkdirs()
+        } else {
+            adhanRawDir.listFiles()?.findAll { f ->
+                f.isFile() && audioExts.contains(f.name.toLowerCase().tokenize('.').last())
+            }?.each { it.delete() }
+        }
+        def keepRefs = [] as ArrayList<String>
+        if (!adhanAssetsDir.exists()) {
+            new File(adhanRawDir, 'keep.xml').delete()
+            return
+        }
+        adhanAssetsDir.listFiles()?.findAll { f ->
+            f.isFile() && audioExts.contains(f.name.toLowerCase().tokenize('.').last())
+        }?.each { src ->
+            def dot = src.name.lastIndexOf('.')
+            def base = src.name.substring(0, dot)
+            def ext = src.name.substring(dot + 1).toLowerCase()
+            def name = sanitizeAdhanName(base)
+            def dest = new File(adhanRawDir, "${name}.${ext}")
+            dest.bytes = src.bytes
+            keepRefs.add("@raw/${name}")
+            logger.lifecycle("syncAdhanSounds: ${src.name} -> ${dest.name}")
+        }
+        // shrinkResources strips raw files that have no static Java/XML reference; the
+        // notification plugin resolves sound by string name only, so without this keep
+        // file release builds throw when posting notifications.
+        def keepFile = new File(adhanRawDir, 'keep.xml')
+        if (keepRefs.isEmpty()) {
+            keepFile.delete()
+        } else {
+            keepFile.text = """<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:keep="${keepRefs.join(',')}" />
+"""
+            logger.lifecycle("syncAdhanSounds: wrote keep.xml (${keepRefs.size()} raw refs)")
+        }
+    }
+}
+
+afterEvaluate {
+    tasks.matching { it.name == 'preBuild' }.configureEach { dependsOn('syncAdhanSounds') }
+}
+
+dependencies {
+    coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:2.1.4"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:2.1.0"
+}

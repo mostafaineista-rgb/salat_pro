@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- Matches Flutter Android getApplicationSupportDirectory() → Context.getFilesDir() -->
+    <files-path name="adhan_sounds" path="adhan/" />
+    <files-path name="app_updates" path="updates" />
+</paths>

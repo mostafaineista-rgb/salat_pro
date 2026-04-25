@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Salat Pro - Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #0d1514;
+        }
+        .noto-serif {
+            font-family: 'Noto Serif', serif;
+        }
+        .glass-panel {
+            background: rgba(46, 54, 53, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .glow-active {
+            box-shadow: 0 0 20px rgba(148, 211, 193, 0.2);
+        }
+        .divine-gradient {
+            background: linear-gradient(135deg, #94d3c1 0%, #004d40 100%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ffb4ab",
+                        "surface-container": "#192120",
+                        "on-surface": "#dce4e2",
+                        "on-error": "#690005",
+                        "on-tertiary-container": "#4f3e00",
+                        "on-surface-variant": "#bfc9c4",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffe088",
+                        "surface": "#0d1514",
+                        "on-primary-container": "#7ebdac",
+                        "surface-container-highest": "#2e3635",
+                        "surface-container-lowest": "#08100f",
+                        "on-primary": "#00382e",
+                        "surface-container-high": "#232c2a",
+                        "primary": "#94d3c1",
+                        "error-container": "#93000a",
+                        "background": "#0d1514",
+                        "surface-variant": "#2e3635",
+                        "on-primary-fixed": "#00201a",
+                        "on-tertiary": "#3c2f00",
+                        "inverse-on-surface": "#2a3231",
+                        "surface-dim": "#0d1514",
+                        "secondary-fixed-dim": "#e9c176",
+                        "inverse-primary": "#29695b",
+                        "secondary": "#e9c176",
+                        "primary-container": "#004d40",
+                        "primary-fixed": "#afefdd",
+                        "tertiary-container": "#cca730",
+                        "secondary-fixed": "#ffdea5",
+                        "surface-bright": "#323b3a",
+                        "on-secondary": "#412d00",
+                        "surface-container-low": "#151d1c",
+                        "primary-fixed-dim": "#94d3c1",
+                        "on-secondary-fixed-variant": "#5d4201",
+                        "on-secondary-container": "#dab36a",
+                        "secondary-container": "#604403",
+                        "on-secondary-fixed": "#261900",
+                        "outline": "#89938f",
+                        "tertiary-fixed-dim": "#e9c349",
+                        "on-primary-fixed-variant": "#065043",
+                        "outline-variant": "#3f4945",
+                        "inverse-surface": "#dce4e2",
+                        "tertiary": "#e9c349",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "surface-tint": "#94d3c1",
+                        "on-tertiary-fixed": "#241a00",
+                        "on-background": "#dce4e2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                },
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<!-- Top Navigation Shell -->
+<header class="fixed top-0 w-full z-50 bg-[#0d1514]/60 backdrop-blur-xl flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#94d3c1] cursor-pointer active:duration-150 scale-95">menu</span>
+<h1 class="font-['Noto_Serif'] text-2xl font-bold text-[#94d3c1]">Salat Pro</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="text-right hidden sm:block">
+<p class="text-[10px] font-bold uppercase tracking-widest text-[#94d3c1]">London, UK</p>
+<p class="text-[10px] text-white/50">14 Ramadhan 1447</p>
+</div>
+<span class="material-symbols-outlined text-[#94d3c1] cursor-pointer active:duration-150 scale-95">notifications</span>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-lg mx-auto space-y-8">
+<!-- Hero Section: Celestial Countdown -->
+<section class="relative py-10 flex flex-col items-center justify-center text-center">
+<!-- Background Spirit Pattern (Visual Anchor) -->
+<div class="absolute inset-0 -z-10 opacity-10 flex items-center justify-center">
+<div class="w-72 h-72 border border-[#94d3c1] rounded-full rotate-45"></div>
+<div class="w-64 h-64 border border-[#94d3c1] rounded-full absolute -rotate-12"></div>
+</div>
+<!-- Glowing Circular Progress -->
+<div class="relative w-64 h-64 flex items-center justify-center">
+<svg class="absolute inset-0 w-full h-full -rotate-90">
+<circle class="text-surface-container-high" cx="128" cy="128" fill="transparent" r="120" stroke="currentColor" stroke-width="2"></circle>
+<circle class="text-primary drop-shadow-[0_0_8px_rgba(148,211,193,0.6)]" cx="128" cy="128" fill="transparent" r="120" stroke="currentColor" stroke-dasharray="753" stroke-dashoffset="180" stroke-width="6"></circle>
+</svg>
+<div class="flex flex-col items-center">
+<span class="text-secondary font-bold tracking-[0.2em] text-xs uppercase mb-1">Upcoming</span>
+<h2 class="font-headline text-5xl font-bold text-on-surface mb-2">Asr</h2>
+<div class="bg-primary/10 px-4 py-1 rounded-full">
+<p class="font-body font-bold text-primary text-xl">01:24:42</p>
+</div>
+</div>
+</div>
+<p class="mt-6 text-on-surface-variant font-medium">Starts at 15:58 • <span class="text-secondary italic">24 mins left to Dhuhr</span></p>
+</section>
+<!-- Prayer List: Tonal Depth Hierarchy -->
+<section class="space-y-3">
+<div class="flex justify-between items-end mb-4 px-1">
+<h3 class="font-headline text-xl text-on-surface">Prayer Times</h3>
+<span class="text-secondary text-xs font-bold uppercase tracking-tighter">Friday, Oct 24</span>
+</div>
+<div class="space-y-2">
+<!-- Prayer Row: Fajr -->
+<div class="flex items-center justify-between p-5 rounded-xl bg-surface-container-low transition-all hover:bg-surface-container-high">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-white/40">bedtime</span>
+<span class="font-semibold text-white/80">Fajr</span>
+</div>
+<span class="font-bold text-white/60">04:32</span>
+</div>
+<!-- Prayer Row: Dhuhr (Active State) -->
+<div class="flex items-center justify-between p-5 rounded-xl bg-surface-container-high ring-1 ring-primary/30 glow-active relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">wb_sunny</span>
+<span class="font-bold text-on-surface">Dhuhr</span>
+<span class="text-[10px] bg-primary/20 text-primary px-2 py-0.5 rounded uppercase font-bold tracking-tighter">Current</span>
+</div>
+<span class="font-extrabold text-primary">12:45</span>
+</div>
+<!-- Prayer Row: Asr -->
+<div class="flex items-center justify-between p-5 rounded-xl bg-surface-container-low transition-all hover:bg-surface-container-high">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-white/40">wb_twilight</span>
+<span class="font-semibold text-white/80">Asr</span>
+</div>
+<span class="font-bold text-white/60">15:58</span>
+</div>
+<!-- Prayer Row: Maghrib -->
+<div class="flex items-center justify-between p-5 rounded-xl bg-surface-container-low transition-all hover:bg-surface-container-high">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-white/40">nights_stay</span>
+<span class="font-semibold text-white/80">Maghrib</span>
+</div>
+<span class="font-bold text-white/60">18:32</span>
+</div>
+<!-- Prayer Row: Isha -->
+<div class="flex items-center justify-between p-5 rounded-xl bg-surface-container-low transition-all hover:bg-surface-container-high">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-white/40">dark_mode</span>
+<span class="font-semibold text-white/80">Isha</span>
+</div>
+<span class="font-bold text-white/60">20:05</span>
+</div>
+</div>
+</section>
+<!-- Daily Verse Card: The Verse Card -->
+<section class="relative group">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-secondary/30 to-primary/30 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+<div class="relative p-8 rounded-2xl bg-surface-container-highest flex flex-col items-center text-center space-y-6">
+<span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+<div class="space-y-4">
+<p class="font-headline text-xl italic leading-relaxed text-on-surface">
+                        "And seek help through patience and prayer, and indeed, it is difficult except for the humbly submissive [to Allah]."
+                    </p>
+<div class="flex items-center justify-center gap-3">
+<div class="h-px w-8 bg-outline-variant"></div>
+<p class="font-label text-xs font-bold uppercase tracking-widest text-secondary">Al-Baqarah 2:45</p>
+<div class="h-px w-8 bg-outline-variant"></div>
+</div>
+</div>
+<button class="px-6 py-2 text-xs font-bold uppercase tracking-widest text-on-secondary-container border border-secondary/20 rounded-full hover:bg-secondary/10 transition-colors">
+                    Reflection
+                </button>
+</div>
+</section>
+<!-- Quick Actions: Bento Layout -->
+<section class="grid grid-cols-2 gap-4">
+<div class="p-6 rounded-2xl bg-surface-container-low flex flex-col gap-4 border border-outline-variant/5">
+<span class="material-symbols-outlined text-primary text-3xl">explore</span>
+<div>
+<h4 class="font-bold text-on-surface">Qibla</h4>
+<p class="text-xs text-on-surface-variant">Find the direction</p>
+</div>
+</div>
+<div class="p-6 rounded-2xl bg-surface-container-low flex flex-col gap-4 border border-outline-variant/5">
+<span class="material-symbols-outlined text-secondary text-3xl">menu_book</span>
+<div>
+<h4 class="font-bold text-on-surface">Quran</h4>
+<p class="text-xs text-on-surface-variant">Continue reading</p>
+</div>
+</div>
+</section>
+<!-- Decorative Image Element -->
+<section class="rounded-3xl overflow-hidden h-48 relative shadow-2xl">
+<img alt="Spiritual architecture" class="w-full h-full object-cover" data-alt="Stunning architectural interior of a modern mosque with intricate geometric patterns and warm glowing spiritual lights in dark emerald tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAM3lTQot1Cx6POyhh8PMe3hz3YcZMZiN9nzehNOU55ksu7kjOicBaHD8o71LKKQWj9X3i2UeAa3QMiyYVVTFheVwPtFV9vS2GO5MAj4TYfXWUp7rkUFqrq2MMb9X_9KuyH669iqbJiGwpdgZuUrecrBf6B1rn7e6ady7mRV6DmJlAZZLGFT_ewflLAsWhtEs3udodD3i36OsBvhjYMe9bU5x1d0dvGCgwWwmUBIBwroxlYluXHlLuenUWxfq6Z5j7IxiNPLGd_CY4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+<div class="absolute bottom-6 left-6">
+<h3 class="font-headline text-2xl font-bold">Ramadhan Spirit</h3>
+<p class="text-sm text-on-primary-container">Embrace the journey of the soul</p>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-3xl bg-[#151d1c]/80 backdrop-blur-2xl shadow-[0_-4px_20px_rgba(13,21,20,0.5)] flex justify-around items-center pt-3 pb-6 px-4 w-full">
+<!-- Home Item (Active) -->
+<a class="flex flex-col items-center justify-center text-[#d4af37] gap-1 hover:text-[#94d3c1] transition-all Active: scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-['Manrope'] text-[10px] font-semibold uppercase tracking-tighter">Home</span>
+</a>
+<!-- Qibla Item -->
+<a class="flex flex-col items-center justify-center text-white/40 gap-1 hover:text-[#94d3c1] transition-all Active: scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-['Manrope'] text-[10px] font-semibold uppercase tracking-tighter">Qibla</span>
+</a>
+<!-- Quran Item -->
+<a class="flex flex-col items-center justify-center text-white/40 gap-1 hover:text-[#94d3c1] transition-all Active: scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-['Manrope'] text-[10px] font-semibold uppercase tracking-tighter">Quran</span>
+</a>
+<!-- Settings Item -->
+<a class="flex flex-col items-center justify-center text-white/40 gap-1 hover:text-[#94d3c1] transition-all Active: scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-['Manrope'] text-[10px] font-semibold uppercase tracking-tighter">Settings</span>
+</a>
+</nav>
+</body></html>

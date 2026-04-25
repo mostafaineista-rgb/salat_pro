@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Salat Pro - Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "background": "#f9f9f9",
+              "surface-container-highest": "#e2e2e2",
+              "inverse-surface": "#2f3131",
+              "inverse-primary": "#88d982",
+              "on-tertiary-fixed-variant": "#5b4137",
+              "primary-fixed-dim": "#88d982",
+              "error": "#ba1a1a",
+              "primary-container": "#2e7d32",
+              "outline-variant": "#bfcaba",
+              "secondary-fixed-dim": "#e9c349",
+              "tertiary": "#6b4f45",
+              "on-error-container": "#93000a",
+              "tertiary-container": "#85675c",
+              "surface-bright": "#f9f9f9",
+              "on-surface": "#1a1c1c",
+              "surface-dim": "#dadada",
+              "primary-fixed": "#a3f69c",
+              "inverse-on-surface": "#f0f1f1",
+              "surface-tint": "#1b6d24",
+              "on-secondary": "#ffffff",
+              "on-secondary-fixed-variant": "#574500",
+              "primary": "#0d631b",
+              "on-tertiary-container": "#ffeee8",
+              "surface-container-high": "#e8e8e8",
+              "outline": "#707a6c",
+              "secondary": "#735c00",
+              "on-primary-container": "#cbffc2",
+              "surface": "#f9f9f9",
+              "on-error": "#ffffff",
+              "secondary-fixed": "#ffe088",
+              "tertiary-fixed": "#ffdbce",
+              "tertiary-fixed-dim": "#e4beb2",
+              "surface-container": "#eeeeee",
+              "on-secondary-fixed": "#241a00",
+              "secondary-container": "#fed65b",
+              "on-tertiary-fixed": "#2b160f",
+              "on-primary": "#ffffff",
+              "on-surface-variant": "#40493d",
+              "on-tertiary": "#ffffff",
+              "on-primary-fixed-variant": "#005312",
+              "on-secondary-container": "#745c00",
+              "surface-container-low": "#f3f3f3",
+              "on-background": "#1a1c1c",
+              "surface-container-lowest": "#ffffff",
+              "on-primary-fixed": "#002204",
+              "surface-variant": "#e2e2e2",
+              "error-container": "#ffdad6"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Plus Jakarta Sans"],
+              "label": ["Plus Jakarta Sans"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pattern-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l2.5 7.5L40 10l-7.5 2.5L30 20l-2.5-7.5L20 10l7.5-2.5L30 0zm0 40l2.5 7.5L40 50l-7.5 2.5L30 60l-2.5-7.5L20 50l7.5-2.5L30 40zM10 20l2.5 7.5L20 30l-7.5 2.5L10 40l-2.5-7.5L0 30l7.5-2.5L10 20zm40 0l2.5 7.5L60 30l-7.5 2.5L50 40l-2.5-7.5L40 30l7.5-2.5L50 20z' fill='%230d631b' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        .glass-effect {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body min-h-screen selection:bg-primary-fixed selection:text-on-primary-fixed">
+<nav class="fixed top-0 z-50 w-full bg-[#f9f9f9]/80 dark:bg-neutral-900/80 backdrop-blur-xl flex justify-between items-center px-8 py-4 no-border transition-colors duration-300">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#0d631b] dark:text-[#4ade80]">location_on</span>
+<span class="font-['Noto_Serif'] text-2xl italic text-[#0d631b] dark:text-[#4ade80]">Salat Pro</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="font-['Noto_Serif'] font-bold tracking-tight text-[#0d631b] dark:text-[#4ade80]">Oct 24</span>
+</div>
+</nav>
+<main class="pt-28 pb-32 px-6 max-w-5xl mx-auto pattern-bg">
+<header class="mb-12">
+<h1 class="font-headline text-5xl md:text-7xl font-bold tracking-tight text-on-surface mb-4">Settings Screen</h1>
+<p class="text-on-surface-variant text-lg md:text-xl max-w-2xl leading-relaxed">
+                Personalize your sanctuary. Adjust your preferences to create a spiritual experience that resonates with your daily rhythm.
+            </p>
+</header>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<section class="md:col-span-7 space-y-8">
+<div class="bg-surface-container-low rounded-xl p-8 transition-all hover:shadow-[0_10px_40px_rgba(13,99,27,0.08)]">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-white shadow-lg">
+<span class="material-symbols-outlined">language</span>
+</div>
+<h2 class="font-headline text-2xl font-bold">Language</h2>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="flex-1 py-4 px-6 rounded-lg bg-surface-container-lowest border-2 border-primary flex justify-between items-center group transition-all">
+<span class="font-semibold text-primary">English</span>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</button>
+<button class="flex-1 py-4 px-6 rounded-lg bg-surface-container-lowest border-2 border-transparent hover:border-outline-variant transition-all flex justify-between items-center group">
+<span class="font-semibold text-on-surface-variant">العربية</span>
+<span class="material-symbols-outlined text-outline-variant opacity-0 group-hover:opacity-100 transition-opacity">radio_button_unchecked</span>
+</button>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-8 transition-all hover:shadow-[0_10px_40px_rgba(13,99,27,0.08)]">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container shadow-lg">
+<span class="material-symbols-outlined">my_location</span>
+</div>
+<h2 class="font-headline text-2xl font-bold">Location</h2>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-5 bg-surface-container-lowest rounded-lg">
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface">Auto-Location</span>
+<span class="text-sm text-tertiary">Uses GPS for accurate prayer times</span>
+</div>
+<div class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-14 h-8 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[4px] after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-primary"></div>
+</div>
+</div>
+<div class="flex items-center justify-between p-5 bg-surface-container-lowest/50 rounded-lg opacity-60">
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface">Manual Override</span>
+<span class="text-sm text-tertiary">Mecca, Saudi Arabia</span>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+<section class="md:col-span-5 space-y-8">
+<div class="bg-primary-container rounded-xl p-8 text-white relative overflow-hidden group">
+<div class="absolute -right-10 -top-10 w-40 h-40 bg-white/10 rounded-full blur-3xl transition-transform group-hover:scale-150 duration-700"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined">dark_mode</span>
+</div>
+<h2 class="font-headline text-2xl font-bold">Appearance</h2>
+</div>
+<p class="mb-8 opacity-90">Switch between light and dark themes to ease your eyes during night reflections.</p>
+<div class="grid grid-cols-2 gap-4">
+<button class="bg-white text-primary font-bold py-3 rounded-full flex items-center justify-center gap-2 hover:scale-105 transition-transform active:scale-95 shadow-xl">
+<span class="material-symbols-outlined text-lg">light_mode</span> Light
+                            </button>
+<button class="bg-primary/30 border border-white/20 text-white font-bold py-3 rounded-full flex items-center justify-center gap-2 hover:bg-primary/40 transition-colors active:scale-95">
+<span class="material-symbols-outlined text-lg">nights_stay</span> Dark
+                            </button>
+</div>
+</div>
+</div>
+<div class="relative rounded-xl overflow-hidden aspect-square shadow-2xl">
+<img alt="Islamic architecture" class="absolute inset-0 w-full h-full object-cover" data-alt="Interior of a modern mosque with white marble arches, intricate geometric patterns, and soft natural light from a high dome" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZRVg2in8CmFYVRdOkp0RH4Hr4jtAtOHwnVzixieL-6uof3EiKdwLMiXJl9srFc6UbHW9r0PZXTsy_frF8Q1hOJPER82LvsbiHWX_3aSZlP-YwN9gdqD6ASY1Nc628kX-S7PwyV6WyV9vW6vNzlDhpn-WdW5iOxqELvPOKxng_wlh9RwuPpzSvzmzwwwgIpjKSfXnzgUrFjE-1GwgTeDqmuE7XXaSp2iYBTLl4Wkj335Fmb8-FPy0pMrrVgAbC0Io-cMawOLxspxM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-6 left-6 right-6">
+<span class="inline-block px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-xs font-bold mb-2 tracking-widest uppercase">Premium</span>
+<h3 class="font-headline text-2xl text-white font-bold">Spiritual Customization</h3>
+</div>
+</div>
+</section>
+</div>
+<div class="mt-12 p-8 bg-surface-container-low rounded-xl border-l-4 border-secondary">
+<h3 class="font-headline text-xl font-bold mb-4">Notification Sound</h3>
+<div class="flex flex-wrap gap-3">
+<button class="px-6 py-2 rounded-full bg-secondary-fixed text-on-secondary-fixed font-medium hover:scale-105 transition-all">Mishary Rashid</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-lowest text-on-surface-variant font-medium border border-outline-variant/20 hover:bg-secondary-fixed/30 transition-all">Abdur-Rahman</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-lowest text-on-surface-variant font-medium border border-outline-variant/20 hover:bg-secondary-fixed/30 transition-all">Soft Beep</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-lowest text-on-surface-variant font-medium border border-outline-variant/20 hover:bg-secondary-fixed/30 transition-all">Silent</button>
+</div>
+</div>
+</main>
+<footer class="fixed bottom-0 left-0 w-full flex justify-around items-center px-6 pb-6 pt-2 bg-[#f9f9f9]/80 dark:bg-neutral-900/80 backdrop-blur-xl border-t border-[#bfcaba]/15 shadow-[0_-10px_40px_rgba(13,99,27,0.12)] z-50">
+<div class="flex flex-col items-center justify-center text-[#40493d] dark:text-neutral-400 p-2 hover:text-[#0d631b] dark:hover:text-[#4ade80] transition-all">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[11px] font-medium">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#40493d] dark:text-neutral-400 p-2 hover:text-[#0d631b] dark:hover:text-[#4ade80] transition-all">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[11px] font-medium">Qibla</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#40493d] dark:text-neutral-400 p-2 hover:text-[#0d631b] dark:hover:text-[#4ade80] transition-all">
+<span class="material-symbols-outlined">notifications_active</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[11px] font-medium">Adhan</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#40493d] dark:text-neutral-400 p-2 hover:text-[#0d631b] dark:hover:text-[#4ade80] transition-all">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[11px] font-medium">Azkar</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-[#2e7d32] text-white rounded-full p-3 scale-110 -translate-y-2 shadow-[0_10px_20px_rgba(46,125,50,0.3)]">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[11px] font-medium">Settings</span>
+</div>
+</footer>
+</body></html>

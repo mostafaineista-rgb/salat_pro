@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "background": "#fbf9f0",
+            "on-secondary-container": "#785a1a",
+            "on-primary-container": "#94e5d5",
+            "primary-fixed-dim": "#84d5c5",
+            "inverse-primary": "#84d5c5",
+            "error-container": "#ffdad6",
+            "on-surface-variant": "#3e4946",
+            "on-surface": "#1b1c17",
+            "primary-container": "#00695c",
+            "outline": "#6e7976",
+            "error": "#ba1a1a",
+            "on-error-container": "#93000a",
+            "on-primary-fixed": "#00201b",
+            "secondary-fixed-dim": "#e9c176",
+            "tertiary-container": "#5e5d5b",
+            "on-secondary": "#ffffff",
+            "on-secondary-fixed-variant": "#5d4201",
+            "on-background": "#1b1c17",
+            "surface-container-high": "#eae8df",
+            "surface-tint": "#046b5e",
+            "secondary": "#775a19",
+            "on-secondary-fixed": "#261900",
+            "on-error": "#ffffff",
+            "surface-container": "#f0eee5",
+            "surface-container-lowest": "#ffffff",
+            "on-primary-fixed-variant": "#005046",
+            "outline-variant": "#bec9c5",
+            "secondary-container": "#fed488",
+            "surface-variant": "#e4e3da",
+            "on-tertiary-fixed": "#1c1c1a",
+            "inverse-surface": "#30312b",
+            "primary-fixed": "#a0f2e1",
+            "on-tertiary-container": "#d9d6d3",
+            "tertiary-fixed-dim": "#c8c6c3",
+            "on-primary": "#ffffff",
+            "secondary-fixed": "#ffdea5",
+            "tertiary-fixed": "#e5e2df",
+            "surface": "#fbf9f0",
+            "on-tertiary": "#ffffff",
+            "primary": "#004f45",
+            "surface-container-low": "#f5f4eb",
+            "surface-dim": "#dcdad2",
+            "inverse-on-surface": "#f3f1e8",
+            "surface-container-highest": "#e4e3da",
+            "on-tertiary-fixed-variant": "#474745",
+            "tertiary": "#464644",
+            "surface-bright": "#fbf9f0"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "stack-sm": "4px",
+            "base": "8px",
+            "stack-lg": "32px",
+            "gutter": "16px",
+            "container-padding": "24px",
+            "stack-md": "12px"
+          },
+          "fontFamily": {
+            "body-lg": ["Noto Serif"],
+            "headline-sm": ["Noto Serif"],
+            "headline-lg": ["Noto Serif"],
+            "body-md": ["Noto Serif"],
+            "label-sm": ["Noto Serif"],
+            "headline-md": ["Noto Serif"],
+            "label-lg": ["Noto Serif"]
+          },
+          "fontSize": {
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+            "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+            "headline-lg": ["34px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "500"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+    .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #bec9c5; border-radius: 10px; }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen font-body-md overflow-x-hidden custom-scrollbar">
+<header class="bg-[#FDFCFB]/80 dark:bg-stone-950/80 backdrop-blur-md border-b border-stone-200 dark:border-stone-800 flex justify-between items-center w-full px-6 h-16 fixed top-0 z-50">
+<div class="flex items-center gap-4">
+<button class="hover:opacity-70 transition-opacity active:scale-95 duration-200 transition-transform">
+<span class="material-symbols-outlined text-teal-800 dark:text-teal-400">menu</span>
+</button>
+<h1 class="text-xl font-semibold text-teal-800 dark:text-teal-200 tracking-widest font-serif font-noto-serif tracking-tight">Salat Pro</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest border border-outline-variant overflow-hidden">
+<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="close-up portrait of a serene man with a neat beard, soft natural lighting, minimalist aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwHEO08Re52QsWJthF3fzCEFReC6zyKZJsoBrq_cZ07LX_eIw7BywsuNTnFwWQvgeZN4nOazCVvu2kED_EiDxtPMuY-BpEVAnEHMvtm02QiNolbZUqwESHykA3XvOmAosJx6p-9T4pAnZuSW2cGCkmuj9uvqmcPkyxtQ-QxUeB3oT67jVMgDxafYPrB95ngYZuMLmMTaJvp52vU_H5SVZe3Vu3ABMUwoB9ptge4aEjJc9fbHTtOlEFrYHz1r2ItWdqgESZicu9kmM"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-container-padding max-w-2xl mx-auto space-y-stack-lg">
+<section class="space-y-stack-md">
+<h2 class="font-headline-lg text-headline-lg text-primary">Settings</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Tailor your spiritual journey to your rhythm.</p>
+</section>
+<div class="space-y-stack-lg">
+<section class="bg-white border border-outline-variant rounded-xl p-6 space-y-gutter shadow-[0_4px_20px_rgba(0,105,92,0.03)]">
+<div class="flex items-center gap-gutter border-b border-surface-variant pb-base">
+<div class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl">person</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Omar Farooq</h3>
+<p class="font-label-lg text-label-lg text-secondary">Premium Member</p>
+</div>
+<button class="ml-auto text-primary hover:opacity-70 transition-opacity">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter pt-base">
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Email</label>
+<p class="font-body-md text-body-md">omar.f@example.com</p>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Location</label>
+<p class="font-body-md text-body-md">London, United Kingdom</p>
+</div>
+</div>
+</section>
+<section class="space-y-gutter">
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-secondary">location_on</span>
+<h3 class="font-label-lg text-label-lg uppercase tracking-widest">Location Settings</h3>
+</div>
+<div class="bg-white border border-outline-variant rounded-xl overflow-hidden">
+<div class="h-40 bg-surface-container-low relative">
+<img class="w-full h-full object-cover opacity-60" data-alt="minimalist map view of London streets with soft teal and beige color palette, clean vector style" data-location="London" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHHY6zunxBajkjBnIZj5_RLw2ZtwpioNKFTiBGXGAV4COIjG-ZqJA2dUweOXO1fyDfxRt5hqZ__D4Zue5UNGkUVFBwa-ij9lKIYMwY6AYytx9400YwiSGuFVY-PzVjH2TPfLbtNnEAOHZdECksyuLJO-x9sMtNCnMZO0giWzFvEY6rGUD8GLeEqsQQTr_QLpNVGEwoc2wXf6dcSLulsJrWwzXJbJv-aXAjaWJxQ8Q9sWVRpv17Lhth4hVdfE_XttiZL447c3Zv2Lk"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full border border-outline-variant flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-primary text-sm">my_location</span>
+<span class="font-label-lg text-label-lg">Detecting automatically...</span>
+</div>
+</div>
+</div>
+<div class="p-6 flex justify-between items-center">
+<div class="space-y-1">
+<p class="font-body-md text-body-md font-semibold">Calculation Method</p>
+<p class="font-label-lg text-label-lg text-on-surface-variant">Islamic Society of North America (ISNA)</p>
+</div>
+<button class="font-label-lg text-label-lg text-primary border border-primary px-4 py-2 rounded-lg hover:bg-primary/5 transition-colors">Change</button>
+</div>
+</div>
+</section>
+<section class="space-y-gutter">
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-secondary">notifications</span>
+<h3 class="font-label-lg text-label-lg uppercase tracking-widest">Notification Toggles</h3>
+</div>
+<div class="space-y-stack-sm">
+<div class="bg-white border border-outline-variant p-4 flex justify-between items-center rounded-lg">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant">campaign</span>
+<p class="font-body-md text-body-md">Adhan Notifications</p>
+</div>
+<div class="w-12 h-6 bg-primary rounded-full relative cursor-pointer">
+<div class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></div>
+</div>
+</div>
+<div class="bg-white border border-outline-variant p-4 flex justify-between items-center rounded-lg">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant">timer</span>
+<p class="font-body-md text-body-md">Pre-Prayer Reminders</p>
+</div>
+<div class="w-12 h-6 bg-outline-variant rounded-full relative cursor-pointer">
+<div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full"></div>
+</div>
+</div>
+<div class="bg-white border border-outline-variant p-4 flex justify-between items-center rounded-lg">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant">auto_stories</span>
+<p class="font-body-md text-body-md">Daily Quran Verse</p>
+</div>
+<div class="w-12 h-6 bg-primary rounded-full relative cursor-pointer">
+<div class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></div>
+</div>
+</div>
+</div>
+</section>
+<section class="space-y-gutter">
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-secondary">palette</span>
+<h3 class="font-label-lg text-label-lg uppercase tracking-widest">Personalization</h3>
+</div>
+<div class="bg-white border border-outline-variant rounded-xl p-6 space-y-gutter">
+<div class="space-y-base">
+<p class="font-body-md text-body-md font-semibold">Theme Mode</p>
+<div class="grid grid-cols-3 gap-base">
+<button class="flex flex-col items-center gap-2 p-4 border-2 border-primary rounded-xl bg-surface-container-low transition-all">
+<span class="material-symbols-outlined text-primary">light_mode</span>
+<span class="font-label-sm text-label-sm">Veil Light</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-4 border border-outline-variant rounded-xl hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined text-on-surface-variant">dark_mode</span>
+<span class="font-label-sm text-label-sm">Moonlight</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-4 border border-outline-variant rounded-xl hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined text-on-surface-variant">brightness_auto</span>
+<span class="font-label-sm text-label-sm">System</span>
+</button>
+</div>
+</div>
+<div class="pt-4 border-t border-surface-variant flex justify-between items-center">
+<div>
+<p class="font-body-md text-body-md font-semibold">Font Style</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Noto Serif (Classic)</p>
+</div>
+<button class="text-primary font-label-lg text-label-lg">Select</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-safe pt-2 h-20 bg-white/90 dark:bg-stone-900/95 backdrop-blur-lg border-t border-stone-100 dark:border-stone-800 shadow-[0_-2px_15px_rgba(0,105,92,0.04)]">
+<div class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 hover:text-teal-600 dark:hover:text-teal-200 active:scale-90 transition-all duration-300 cursor-pointer">
+<span class="material-symbols-outlined">home</span>
+<span class="font-noto-serif text-[10px] uppercase tracking-[0.1em] font-medium">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 hover:text-teal-600 dark:hover:text-teal-200 active:scale-90 transition-all duration-300 cursor-pointer">
+<span class="material-symbols-outlined">mosque</span>
+<span class="font-noto-serif text-[10px] uppercase tracking-[0.1em] font-medium">Prayer</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 hover:text-teal-600 dark:hover:text-teal-200 active:scale-90 transition-all duration-300 cursor-pointer">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-noto-serif text-[10px] uppercase tracking-[0.1em] font-medium">Qibla</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 hover:text-teal-600 dark:hover:text-teal-200 active:scale-90 transition-all duration-300 cursor-pointer">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-noto-serif text-[10px] uppercase tracking-[0.1em] font-medium">Quran</span>
+</div>
+<div class="flex flex-col items-center justify-center text-teal-700 dark:text-teal-300 font-bold active:scale-90 transition-all duration-300 cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-noto-serif text-[10px] uppercase tracking-[0.1em] font-medium">Settings</span>
+</div>
+</nav>
+</body></html>

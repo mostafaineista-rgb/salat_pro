@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Salat Pro - Qibla Finder</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#0d1514",
+                    "on-primary": "#00382e",
+                    "on-surface": "#dce4e2",
+                    "error": "#ffb4ab",
+                    "on-error": "#690005",
+                    "inverse-surface": "#dce4e2",
+                    "secondary-fixed-dim": "#e9c176",
+                    "tertiary-fixed-dim": "#e9c349",
+                    "surface-tint": "#94d3c1",
+                    "surface-container-lowest": "#08100f",
+                    "primary-container": "#004d40",
+                    "primary": "#94d3c1",
+                    "error-container": "#93000a",
+                    "tertiary": "#e9c349",
+                    "on-secondary-fixed-variant": "#5d4201",
+                    "surface-container": "#192120",
+                    "on-tertiary-container": "#4f3e00",
+                    "on-secondary-fixed": "#261900",
+                    "on-primary-container": "#7ebdac",
+                    "outline-variant": "#3f4945",
+                    "tertiary-fixed": "#ffe088",
+                    "on-background": "#dce4e2",
+                    "on-tertiary": "#3c2f00",
+                    "on-secondary": "#412d00",
+                    "inverse-primary": "#29695b",
+                    "primary-fixed-dim": "#94d3c1",
+                    "on-tertiary-fixed": "#241a00",
+                    "outline": "#89938f",
+                    "on-tertiary-fixed-variant": "#574500",
+                    "surface-container-highest": "#2e3635",
+                    "surface-bright": "#323b3a",
+                    "surface": "#0d1514",
+                    "secondary-container": "#604403",
+                    "tertiary-container": "#cca730",
+                    "inverse-on-surface": "#2a3231",
+                    "on-primary-fixed": "#00201a",
+                    "secondary-fixed": "#ffdea5",
+                    "primary-fixed": "#afefdd",
+                    "on-error-container": "#ffdad6",
+                    "on-surface-variant": "#bfc9c4",
+                    "surface-variant": "#2e3635",
+                    "secondary": "#e9c176",
+                    "on-primary-fixed-variant": "#065043",
+                    "background": "#0d1514",
+                    "surface-container-low": "#151d1c",
+                    "on-secondary-container": "#dab36a",
+                    "surface-container-high": "#232c2a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .compass-glow {
+            box-shadow: 0 0 60px 10px rgba(148, 211, 193, 0.05);
+        }
+        .celestial-bg {
+            background: radial-gradient(circle at 50% 50%, #151d1c 0%, #0d1514 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface selection:bg-primary/30 min-h-screen flex flex-col overflow-hidden">
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 w-full z-50 bg-[#0d1514]/60 backdrop-blur-xl flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-4">
+<button class="text-[#94d3c1] hover:text-[#94d3c1] transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-['Noto_Serif'] text-2xl font-bold text-[#94d3c1] tracking-wide">Salat Pro</h1>
+</div>
+<button class="text-[#94d3c1] hover:text-[#94d3c1] transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 celestial-bg flex flex-col items-center justify-center relative px-6 pt-16 pb-24">
+<!-- Subtle Pattern Overlay -->
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB7_5_A8lGc0jLC8dzHMKQE5Fwu_u_xwm-l-TzTDV8GQjOm3eVqimnhnG1HAHCOE5AjDTlMTcOrLEjJ36MwBt_DeEohoeqaZG7ExJ5RQjDDjc0Xn2P85td0MXxt_DKaBBK0TuS39DPxybvzooy1EQPXnDaqM5eJVqmcKFGtnmvLUL0mHMiNAqkFpaVUgImlkefGxzyiInjLEO3mhG97td12PEW9Bm2ImBsAxROYurYtX04EiqsRidB4nUjEjgN4K7tJLIVqUSrkMKQ');">
+</div>
+<!-- Header Content -->
+<div class="text-center mb-8 z-10">
+<h2 class="font-headline text-3xl text-on-surface mb-2 tracking-tight">Qibla Direction</h2>
+<p class="font-label text-sm text-on-surface-variant tracking-widest uppercase">Align your soul</p>
+</div>
+<!-- Interactive Circular Compass -->
+<div class="relative w-80 h-80 md:w-96 md:h-96 flex items-center justify-center z-10">
+<!-- Outermost Ring (Tonal) -->
+<div class="absolute inset-0 rounded-full border border-outline-variant/10"></div>
+<!-- Degree Markers -->
+<div class="absolute inset-4 rounded-full border border-outline-variant/20 flex items-center justify-center">
+<div class="absolute top-4 font-label text-[10px] text-white/40">N</div>
+<div class="absolute right-4 font-label text-[10px] text-white/40">E</div>
+<div class="absolute bottom-4 font-label text-[10px] text-white/40">S</div>
+<div class="absolute left-4 font-label text-[10px] text-white/40">W</div>
+</div>
+<!-- Main Rotating Dial -->
+<div class="relative w-72 h-72 md:w-80 md:h-80 rounded-full bg-surface-container-low compass-glow flex items-center justify-center border border-primary/5">
+<!-- Fine Radial Markers -->
+<div class="absolute inset-0 rounded-full opacity-30" style="background: repeating-conic-gradient(from 0deg, transparent 0deg, transparent 5deg, #94d3c1 5deg, #94d3c1 5.5deg);">
+</div>
+<!-- Center Display -->
+<div class="flex flex-col items-center z-20">
+<span class="font-headline text-6xl md:text-7xl text-on-surface font-bold tracking-tighter">145°</span>
+<span class="font-label text-secondary text-xs font-bold tracking-[0.2em] uppercase mt-2">Southeast</span>
+</div>
+<!-- The Needle / Kaaba Indicator -->
+<div class="absolute inset-0 flex items-center justify-center rotate-[145deg]">
+<div class="h-full w-full relative">
+<!-- Compass Needle -->
+<div class="absolute top-2 left-1/2 -translate-x-1/2 flex flex-col items-center">
+<div class="w-1.5 h-16 bg-gradient-to-t from-secondary to-secondary-container rounded-full shadow-[0_0_15px_rgba(233,193,118,0.4)]"></div>
+<div class="mt-2 text-secondary scale-125">
+<span class="material-symbols-outlined" data-icon="kaaba" style="font-variation-settings: 'FILL' 1;">mosque</span>
+</div>
+</div>
+<!-- Tail -->
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2">
+<div class="w-1 h-8 bg-on-surface-variant/20 rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Location Info -->
+<div class="mt-10 flex flex-col items-center gap-2 z-10">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+<span class="font-body text-sm font-medium">Current Location</span>
+</div>
+<p class="font-headline text-xl text-on-surface">London, UK</p>
+</div>
+<!-- Distance Card (Glassmorphic) -->
+<div class="mt-auto w-full max-w-sm z-10">
+<div class="bg-surface-variant/40 backdrop-blur-2xl rounded-2xl p-6 border border-white/5 flex items-center justify-between shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
+<div class="flex flex-col gap-1">
+<span class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">Distance to Kaaba</span>
+<p class="font-headline text-2xl text-secondary">4,785 <span class="text-sm font-body text-on-surface-variant">km</span></p>
+</div>
+<div class="h-12 w-12 rounded-full bg-secondary-container/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" data-icon="straighten">straighten</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-3xl bg-[#151d1c]/80 backdrop-blur-2xl shadow-[0_-4px_20px_rgba(13,21,20,0.5)]">
+<div class="flex justify-around items-center pt-3 pb-6 px-4 w-full">
+<!-- Home -->
+<a class="flex flex-col items-center justify-center text-white/40 gap-1 hover:text-[#94d3c1] transition-all Active: scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Manrope'] text-[10px] font-semibold uppercase tracking-tighter">Home</span>
+</a>
+<!-- Qibla (Active) -->
+<a class="flex flex-col items-center justify-center text-[#d4af37] gap-1 hover:text-[#94d3c1] transition-all Active: scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="explore" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-['Manrope'] text-[10px] font-semibold uppercase tracking-tighter">Qibla</span>
+</a>
+<!-- Quran -->
+<a class="flex flex-col items-center justify-center text-white/40 gap-1 hover:text-[#94d3c1] transition-all Active: scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-['Manrope'] text-[10px] font-semibold uppercase tracking-tighter">Quran</span>
+</a>
+<!-- Settings -->
+<a class="flex flex-col items-center justify-center text-white/40 gap-1 hover:text-[#94d3c1] transition-all Active: scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-['Manrope'] text-[10px] font-semibold uppercase tracking-tighter">Settings</span>
+</a>
+</div>
+</nav>
+</body></html>

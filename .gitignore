@@ -1,0 +1,31 @@
+# Flutter
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+build/
+**/doc/api/
+
+# Android (machine-specific; never commit)
+android/local.properties
+android/.kotlin/
+android/.gradle/
+android/app/debug/
+android/app/profile/
+android/app/release/
+
+# IDE
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# JVM / Gradle crash dumps (often created in project dir on OOM)
+hs_err_pid*.log
+replay_pid*.log
+*.hprof
+
+# Local scratch (e.g. temp Flutter project used to sync assets)
+_icon_template/

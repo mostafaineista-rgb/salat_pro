@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Salat Pro - Celestial Calendar</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-fixed": "#ffdea5",
+            "primary-fixed": "#afefdd",
+            "on-error-container": "#ffdad6",
+            "on-primary-fixed": "#00201a",
+            "surface-variant": "#2e3635",
+            "secondary": "#e9c176",
+            "on-surface-variant": "#bfc9c4",
+            "on-primary-fixed-variant": "#065043",
+            "background": "#0d1514",
+            "surface-container-high": "#232c2a",
+            "surface-container-low": "#151d1c",
+            "on-secondary-container": "#dab36a",
+            "primary-fixed-dim": "#94d3c1",
+            "on-tertiary-fixed": "#241a00",
+            "outline": "#89938f",
+            "on-tertiary-fixed-variant": "#574500",
+            "surface-container-highest": "#2e3635",
+            "surface-bright": "#323b3a",
+            "surface": "#0d1514",
+            "secondary-container": "#604403",
+            "inverse-on-surface": "#2a3231",
+            "tertiary-container": "#cca730",
+            "surface-container": "#192120",
+            "on-tertiary-container": "#4f3e00",
+            "on-secondary-fixed": "#261900",
+            "on-primary-container": "#7ebdac",
+            "outline-variant": "#3f4945",
+            "tertiary-fixed": "#ffe088",
+            "on-background": "#dce4e2",
+            "on-tertiary": "#3c2f00",
+            "on-secondary": "#412d00",
+            "inverse-primary": "#29695b",
+            "surface-dim": "#0d1514",
+            "on-primary": "#00382e",
+            "on-error": "#690005",
+            "on-surface": "#dce4e2",
+            "error": "#ffb4ab",
+            "tertiary-fixed-dim": "#e9c349",
+            "surface-tint": "#94d3c1",
+            "surface-container-lowest": "#08100f",
+            "primary-container": "#004d40",
+            "primary": "#94d3c1",
+            "inverse-surface": "#dce4e2",
+            "secondary-fixed-dim": "#e9c176",
+            "on-secondary-fixed-variant": "#5d4201",
+            "error-container": "#93000a",
+            "tertiary": "#e9c349"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "fontFamily": {
+            "headline": ["Noto Serif"],
+            "body": ["Manrope"],
+            "label": ["Manrope"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body { font-family: 'Manrope', sans-serif; background-color: #0d1514; }
+    .noto-serif { font-family: 'Noto Serif', serif; }
+    .glass-card {
+      background: rgba(46, 54, 53, 0.4);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    .moon-glow {
+      box-shadow: 0 0 80px rgba(220, 228, 226, 0.15);
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface selection:bg-primary-container selection:text-primary">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#0d1514]/80 backdrop-blur-2xl bg-gradient-to-b from-[#0d1514] to-transparent">
+<div class="flex justify-between items-center w-full px-6 py-4">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#94d3c1] scale-95 active:scale-90 transition-transform cursor-pointer">menu</span>
+<h1 class="text-2xl font-serif text-[#94d3c1] italic tracking-tight">Salat Pro</h1>
+</div>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high ring-1 ring-outline-variant">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="close-up portrait of a middle aged man with a short beard looking serene against a dark minimalist background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4RdGAX81yk2Sxmz_1V53DgR1bvORME41HVPBK0E0o0bddbD5NwoBzNUlWDvnYPlmpP5WGe5XVTwYFBcSpj8TIvELq2RoQGCJjjMWb088ABmlHAQ5m6oO44kiETqxEf57pZlykVlE5DbpLDvPl29aEtJ5Ixb-_BnV5i-54W9s11HKSbS-BwAQ1GLS7ZTm6ozeeD5mG8boMQ0fZSWDiOt0mnLag78fpIEieTXgPPMu9ESpNFPp7-9YIdEyKYi6R1udDVct2tMwPIhg"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-5xl mx-auto space-y-12">
+<!-- Hero Section: Celestial Moon Phase -->
+<section class="relative flex flex-col md:flex-row items-center gap-8 md:gap-16 py-8">
+<div class="relative w-64 h-64 md:w-80 md:h-80 flex-shrink-0">
+<!-- Realistic 3D Moon Representation -->
+<div class="absolute inset-0 rounded-full bg-gradient-to-br from-on-surface to-surface-variant moon-glow overflow-hidden">
+<div class="absolute inset-0 opacity-20" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD-iWhUp_E8CqRBLUc-61_Zuod04n7pST_OTwNOaGCW4Nsl2hVN0YvZ2H1w0bw02hbqwVtZXU66AEieekzWLo3JhsPTBRy1m9bg8pSW434eo7WD7NE728uybcT3DdZ06eAiVF1eox4-CV4MJhE_Mgl6hbxRc_75nm1F_Lz806x3lPi4hBaj-T4s3JEPBztp248iv1jCo7dyM8uRpWznJnIVLIEEySFBI6XZjFBSFq6KSIl-a7J8fku7Usc4fuOnx6vkvAcQJ5Lp_UU');"></div>
+<!-- Moon Shadow/Phase Overlay -->
+<div class="absolute inset-0 bg-surface translate-x-1/2 scale-110 blur-xl opacity-80"></div>
+</div>
+<div class="absolute -inset-4 border border-outline-variant/20 rounded-full"></div>
+<div class="absolute -inset-10 border border-outline-variant/10 rounded-full"></div>
+</div>
+<div class="flex-1 space-y-4 text-center md:text-left">
+<p class="text-secondary tracking-[0.2em] font-semibold uppercase text-xs">Current Moon Phase</p>
+<h2 class="text-5xl md:text-7xl noto-serif font-bold text-on-background leading-tight">Waxing Crescent</h2>
+<div class="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4">
+<span class="text-3xl noto-serif text-on-surface italic">14 Ramadan 1445</span>
+<span class="text-sm font-medium text-outline uppercase tracking-widest">Sunday, 24 March 2024</span>
+</div>
+</div>
+</section>
+<!-- Monthly Calendar Bento Grid -->
+<section class="space-y-6">
+<div class="flex justify-between items-end">
+<div class="space-y-1">
+<h3 class="text-2xl noto-serif text-on-background">Ramadan 1445</h3>
+<p class="text-sm text-outline">Holy Month of Fasting</p>
+</div>
+<div class="flex gap-2">
+<button class="p-2 bg-surface-container-low text-primary hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="p-2 bg-surface-container-low text-primary hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-4 md:p-8">
+<div class="grid grid-cols-7 gap-px text-center mb-4">
+<div class="text-[10px] font-bold text-outline uppercase tracking-tighter">Sun</div>
+<div class="text-[10px] font-bold text-outline uppercase tracking-tighter">Mon</div>
+<div class="text-[10px] font-bold text-outline uppercase tracking-tighter">Tue</div>
+<div class="text-[10px] font-bold text-outline uppercase tracking-tighter">Wed</div>
+<div class="text-[10px] font-bold text-outline uppercase tracking-tighter">Thu</div>
+<div class="text-[10px] font-bold text-outline uppercase tracking-tighter">Fri</div>
+<div class="text-[10px] font-bold text-outline uppercase tracking-tighter">Sat</div>
+</div>
+<div class="grid grid-cols-7 gap-2 md:gap-4">
+<!-- Calendar Days (Sample Layout) -->
+<div class="aspect-square flex flex-col items-center justify-center text-outline-variant text-sm">28</div>
+<div class="aspect-square flex flex-col items-center justify-center text-outline-variant text-sm">29</div>
+<div class="aspect-square flex flex-col items-center justify-center bg-surface-container-high rounded-lg text-on-surface text-sm">1</div>
+<div class="aspect-square flex flex-col items-center justify-center bg-surface-container-high rounded-lg text-on-surface text-sm">2</div>
+<div class="aspect-square flex flex-col items-center justify-center bg-surface-container-high rounded-lg text-on-surface text-sm">3</div>
+<div class="aspect-square flex flex-col items-center justify-center bg-surface-container-high rounded-lg text-on-surface text-sm">4</div>
+<div class="aspect-square flex flex-col items-center justify-center bg-surface-container-high rounded-lg text-on-surface text-sm">5</div>
+<!-- Repeated rows for brevity, focusing on active state -->
+<div class="aspect-square flex flex-col items-center justify-center bg-surface-container-high rounded-lg text-on-surface text-sm">6</div>
+<div class="aspect-square flex flex-col items-center justify-center bg-surface-container-high rounded-lg text-on-surface text-sm">7</div>
+<div class="aspect-square flex flex-col items-center justify-center bg-surface-container-high rounded-lg text-on-surface text-sm">8</div>
+<div class="aspect-square flex flex-col items-center justify-center bg-surface-container-high rounded-lg text-on-surface text-sm">9</div>
+<div class="aspect-square flex flex-col items-center justify-center bg-surface-container-high rounded-lg text-on-surface text-sm">10</div>
+<div class="aspect-square flex flex-col items-center justify-center bg-surface-container-high rounded-lg text-on-surface text-sm">11</div>
+<div class="aspect-square flex flex-col items-center justify-center bg-surface-container-high rounded-lg text-on-surface text-sm">12</div>
+<div class="aspect-square flex flex-col items-center justify-center bg-surface-container-high rounded-lg text-on-surface text-sm">13</div>
+<!-- ACTIVE DAY -->
+<div class="aspect-square flex flex-col items-center justify-center bg-primary-container ring-1 ring-primary rounded-lg relative">
+<span class="text-primary font-bold">14</span>
+<div class="absolute bottom-1 w-1 h-1 bg-secondary rounded-full"></div>
+</div>
+<div class="aspect-square flex flex-col items-center justify-center bg-surface-container-high rounded-lg text-on-surface text-sm">15</div>
+<div class="aspect-square flex flex-col items-center justify-center bg-surface-container-high rounded-lg text-on-surface text-sm">16</div>
+<div class="aspect-square flex flex-col items-center justify-center bg-surface-container-high rounded-lg text-on-surface text-sm">17</div>
+<div class="aspect-square flex flex-col items-center justify-center bg-surface-container-high rounded-lg text-on-surface text-sm">18</div>
+<div class="aspect-square flex flex-col items-center justify-center bg-surface-container-high rounded-lg text-on-surface text-sm">19</div>
+<div class="aspect-square flex flex-col items-center justify-center bg-surface-container-high rounded-lg text-on-surface text-sm">20</div>
+<div class="aspect-square flex flex-col items-center justify-center bg-surface-container-high rounded-lg text-on-surface text-sm">21</div>
+<div class="aspect-square flex flex-col items-center justify-center bg-surface-container-high rounded-lg text-on-surface text-sm">22</div>
+<div class="aspect-square flex flex-col items-center justify-center bg-surface-container-high rounded-lg text-on-surface text-sm">23</div>
+<div class="aspect-square flex flex-col items-center justify-center bg-surface-container-high rounded-lg text-on-surface text-sm">24</div>
+<div class="aspect-square flex flex-col items-center justify-center bg-surface-container-high rounded-lg text-on-surface text-sm">25</div>
+<div class="aspect-square flex flex-col items-center justify-center bg-surface-container-high rounded-lg text-on-surface text-sm">26</div>
+<div class="aspect-square flex flex-col items-center justify-center bg-surface-container-high rounded-lg text-on-surface text-sm">27</div>
+<div class="aspect-square flex flex-col items-center justify-center bg-surface-container-high rounded-lg text-on-surface text-sm">28</div>
+<div class="aspect-square flex flex-col items-center justify-center bg-surface-container-high rounded-lg text-on-surface text-sm">29</div>
+<div class="aspect-square flex flex-col items-center justify-center bg-surface-container-high rounded-lg text-on-surface text-sm">30</div>
+</div>
+</div>
+</section>
+<!-- Upcoming Events (Editorial Glassmorphic Cards) -->
+<section class="space-y-6">
+<h3 class="text-2xl noto-serif text-on-background">Upcoming Observances</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Event Card 1 -->
+<div class="glass-card p-6 flex items-center justify-between group cursor-pointer hover:bg-surface-variant/60 transition-all">
+<div class="space-y-1">
+<p class="text-secondary text-[10px] font-bold uppercase tracking-widest">In 13 Days</p>
+<h4 class="text-xl font-bold">Laylat al-Qadr</h4>
+<p class="text-sm text-outline">The Night of Power</p>
+</div>
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary rounded-full group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">auto_awesome</span>
+</div>
+</div>
+<!-- Event Card 2 -->
+<div class="glass-card p-6 flex items-center justify-between group cursor-pointer hover:bg-surface-variant/60 transition-all">
+<div class="space-y-1">
+<p class="text-secondary text-[10px] font-bold uppercase tracking-widest">In 16 Days</p>
+<h4 class="text-xl font-bold">Eid al-Fitr</h4>
+<p class="text-sm text-outline">Festival of Breaking Fast</p>
+</div>
+<div class="w-12 h-12 flex items-center justify-center bg-secondary/10 text-secondary rounded-full group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">celebration</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Contextual Prayer Overlay (Visible for Active Date) -->
+<section class="glass-card rounded-2xl p-6 md:p-8 space-y-6 ring-1 ring-outline-variant/10">
+<div class="flex justify-between items-center border-b border-outline-variant/20 pb-4">
+<div>
+<h4 class="text-xl font-bold">Sunday Prayers</h4>
+<p class="text-sm text-outline">14 Ramadan 1445</p>
+</div>
+<div class="text-right">
+<p class="text-secondary text-xs font-bold uppercase tracking-widest">Next Prayer</p>
+<p class="text-lg font-serif italic text-primary">Asr in 2h 45m</p>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+<div class="space-y-1">
+<p class="text-[10px] text-outline uppercase font-bold tracking-widest">Fajr</p>
+<p class="text-lg font-semibold">05:12 AM</p>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] text-outline uppercase font-bold tracking-widest">Dhuhr</p>
+<p class="text-lg font-semibold">12:34 PM</p>
+</div>
+<div class="space-y-1 border-l border-primary/20 pl-4">
+<p class="text-[10px] text-primary uppercase font-bold tracking-widest">Asr</p>
+<p class="text-lg font-semibold text-primary">03:58 PM</p>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] text-outline uppercase font-bold tracking-widest">Maghrib</p>
+<p class="text-lg font-semibold">06:45 PM</p>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] text-outline uppercase font-bold tracking-widest">Isha</p>
+<p class="text-lg font-semibold">08:02 PM</p>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-8 pt-4 bg-[#151d1c]/90 backdrop-blur-3xl z-50 rounded-t-[2rem] border-none shadow-[0_-8px_30px_rgb(0,77,64,0.1)]">
+<div class="flex flex-col items-center justify-center text-teal-800 hover:text-teal-200 transition-all duration-300 ease-out active:translate-y-1 cursor-pointer">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-sans text-[10px] font-semibold uppercase tracking-widest mt-1">Prayer</span>
+</div>
+<div class="flex flex-col items-center justify-center text-teal-800 hover:text-teal-200 transition-all duration-300 ease-out active:translate-y-1 cursor-pointer">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-sans text-[10px] font-semibold uppercase tracking-widest mt-1">Qibla</span>
+</div>
+<!-- ACTIVE TAB: Calendar -->
+<div class="flex flex-col items-center justify-center text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.4)] ease-out active:translate-y-1 cursor-pointer">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-sans text-[10px] font-semibold uppercase tracking-widest mt-1">Calendar</span>
+</div>
+<div class="flex flex-col items-center justify-center text-teal-800 hover:text-teal-200 transition-all duration-300 ease-out active:translate-y-1 cursor-pointer">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-sans text-[10px] font-semibold uppercase tracking-widest mt-1">Quran</span>
+</div>
+<div class="flex flex-col items-center justify-center text-teal-800 hover:text-teal-200 transition-all duration-300 ease-out active:translate-y-1 cursor-pointer">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-sans text-[10px] font-semibold uppercase tracking-widest mt-1">Settings</span>
+</div>
+</nav>
+</body></html>
