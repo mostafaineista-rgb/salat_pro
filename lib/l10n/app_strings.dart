@@ -1,5 +1,6 @@
 import 'package:adhan/adhan.dart';
 import 'package:intl/intl.dart';
+import 'package:salat_pro/core/constants/brand_constants.dart';
 
 /// UI strings for Arabic (`ar`) and English (`en`). Default app language is Arabic.
 class AppStrings {
@@ -389,7 +390,7 @@ class AppStrings {
 
   String get openSystemSettingsSubtitle => isArabic
       ? 'الموقع والإشعارات والمنبّهات الدقيقة'
-      : 'Location, notifications, and exact alarms';
+      : 'Location and notifications';
 
   String aboutVersionLine(String version) =>
       isArabic ? 'صلاة برو v$version' : 'Salat Pro v$version';
@@ -402,8 +403,26 @@ class AppStrings {
       isArabic ? 'يُنشر بواسطة $studio.' : 'Published by $studio.';
 
   String aboutStudioBlurb(String shortName, String studioDisplayName) => isArabic
-      ? '$studioDisplayName ($shortName) — تطبيقات وألعاب من بلاد الرافدين بجودة وتجربة واضحة.'
-      : '$studioDisplayName ($shortName) — apps and games from Mesopotamia with a focus on quality and clarity.';
+      ? '$studioDisplayName ($shortName) — تطبيقات عملية مستقرة وسهلة الاستخدام مع اهتمام بالتصميم واحترام الخصوصية.'
+      : '$studioDisplayName ($shortName) — practical, stable, user-friendly apps with clean design and respect for privacy.';
+
+  String get aboutSalatProTitle => isArabic ? 'حول صلاة برو' : 'About Salat Pro';
+
+  String get aboutSalatProBody => isArabic
+      ? 'صلاة برو هو تطبيق لأوقات الصلاة من تطوير ${BrandConstants.studioDisplayName}. يوفّر طريقة بسيطة وموثوقة لعرض أوقات الصلاة اليومية، واتجاه القبلة، ومعلومات التاريخ الهجري، وتنبيهات وتذكيرات إسلامية.'
+      : 'Salat Pro is a prayer times application developed by ${BrandConstants.studioDisplayName}. It provides a simple and reliable way to view daily prayer times, Qibla direction, Hijri date information, and Islamic reminders.';
+
+  String get aboutStudioTitle => isArabic ? 'حول ${BrandConstants.studioDisplayName}' : 'About ${BrandConstants.studioDisplayName}';
+
+  String get aboutStudioBody => isArabic
+      ? '${BrandConstants.studioDisplayName} يبني تطبيقات عملية ومستقرة وسهلة الاستخدام مع التركيز على تصميم نظيف وميزات مفيدة واحترام خصوصية المستخدم.'
+      : '${BrandConstants.studioDisplayName} builds practical, stable, and user-friendly apps with a focus on clean design, useful features, and respect for user privacy.';
+
+  String get aboutPrivacyNoteTitle => isArabic ? 'ملاحظة الخصوصية' : 'Privacy note';
+
+  String get aboutPrivacyNoteBody => isArabic
+      ? 'نحترم خصوصيتك. يجب أن يطلب صلاة برو الأذونات اللازمة فقط لميزات التطبيق مثل أوقات الصلاة حسب الموقع واتجاه القبلة.'
+      : 'We respect user privacy. Salat Pro should only request permissions required for app features such as location-based prayer times and Qibla direction.';
 
   String get aboutPackagePrefixLabel =>
       isArabic ? 'بادئة حزمة المطوّر' : 'Developer package prefix';
@@ -433,16 +452,31 @@ class AppStrings {
       : 'This policy describes how Salat Pro handles information on your device. Publisher: $studio.';
 
   String get privacyPolicyBodyLocation => isArabic
-      ? 'الموقع: يُستخدم لحساب أوقات الصلاة والقبلة والمساجد القريبة والطقس الاختياري عندما تسمح بذلك. لا نبيع بياناتك.'
-      : 'Location: Used to compute prayer times, Qibla, nearby mosques, and optional weather when you allow it. We do not sell your data.';
+      ? 'الموقع: يُستخدم لحساب أوقات الصلاة والقبلة، وللعثور على المساجد القريبة، ولجلب الطقس الاختياري عند تفعيل ذلك. لا نبيع بياناتك.'
+      : 'Location: Used to compute prayer times and Qibla, find nearby mosques, and fetch optional weather when enabled. We do not sell your data.';
 
   String get privacyPolicyBodyNotifications => isArabic
       ? 'التنبيهات: تُجدول محلياً على جهازك لتنبيهات الصلاة عند تفعيلها.'
       : 'Notifications: Prayer alerts are scheduled locally on your device when you enable them.';
 
+  String get privacyPolicyBodyThirdPartiesTitle =>
+      isArabic ? 'خدمات الطرف الثالث' : 'Third-party services';
+
+  String get privacyPolicyBodyThirdParties => isArabic
+      ? 'عند استخدام بعض الميزات، قد يرسل التطبيق استعلامات إلى خدمات عامة لتقديم النتائج (مثال: البحث عن مدينة أو مساجد قريبة أو طقس). قد تتضمن هذه الاستعلامات نص البحث أو إحداثيات الموقع. من أمثلة الخدمات: OpenStreetMap Nominatim، Overpass API، Open‑Meteo، ومصدر الحديث عبر CDN/GitHub.'
+      : 'When you use certain features, the app may send requests to public services to provide results (e.g., city search, nearby mosques, weather). These requests may include your search text or location coordinates. Examples include OpenStreetMap Nominatim, the Overpass API, Open‑Meteo, and the hadith source via CDN/GitHub.';
+
   String get privacyPolicyBodyDataSales => isArabic
       ? 'لا نبيع معلوماتك الشخصية لأطراف ثالثة.'
       : 'We do not sell your personal information to third parties.';
+
+  String get privacyPolicyBodyAdsAnalytics => isArabic
+      ? 'الإعلانات والتحليلات: لا نعرض إعلانات داخل التطبيق، ولا نستخدم حزم تحليلات/تتبع للإعلانات.'
+      : 'Ads & analytics: We do not show in-app ads and we do not use ad-tracking analytics SDKs.';
+
+  String get privacyPolicyBodyStorage => isArabic
+      ? 'التخزين المحلي: قد نخزن إعداداتك محلياً على جهازك (مثل التفضيلات) لتحسين التجربة.'
+      : 'Local storage: We may store your preferences locally on your device to improve the experience.';
 
   String get privacyPolicyQuestionsIntro => isArabic
       ? 'لأسئلة الخصوصية، راسلنا على:'
@@ -456,7 +490,7 @@ class AppStrings {
 
   String get checkForUpdatesSubtitle => isArabic
       ? 'تنزيل وإعادة تثبيت نسخة جديدة عند توافرها'
-      : 'Download a new build when a release is available';
+      : 'Open your store listing when a new release is available';
 
   String get updateChecking => isArabic ? 'جاري التحقق…' : 'Checking…';
 
@@ -473,6 +507,8 @@ class AppStrings {
   String get updateDownloadInstall => isArabic ? 'تنزيل وتحديث' : 'Download and update';
 
   String get updateOpenInBrowser => isArabic ? 'فتح' : 'Open';
+
+  String get updateOpenPlayStore => isArabic ? 'فتح متجر بلاي' : 'Open Play Store';
 
   String get updateLater => isArabic ? 'لاحقاً' : 'Later';
 

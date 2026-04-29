@@ -6,13 +6,11 @@
 // {
 //   "version": "1.0.1",
 //   "build": 2,
-//   "android_apk_url": "https:// your-host /salat_pro-1.0.1.apk",
 //   "windows_installer_url": "https:// your-host /salat_pro_1.0.1 Setup.exe",
 //   "ios_url": "https:// apps.apple.com /app/...",
 //   "release_notes": "Bug fixes and improvements"
 // }
 //
 // Live manifest (public repo, main branch): bump `build` above pubspec +N when you ship.
-// APK: attach `app-release.apk` to a GitHub Release whose tag matches the URL below.
 const String kAppUpdateManifestUrl =
     'https://raw.githubusercontent.com/mostafaineista-rgb/salat_pro/main/docs/update_manifest.json';

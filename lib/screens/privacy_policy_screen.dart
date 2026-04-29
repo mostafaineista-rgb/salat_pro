@@ -10,7 +10,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
 
   static Future<void> _openExternal(Uri uri) async {
     if (await canLaunchUrl(uri)) {
-      await launchUrl(uri, mode: LaunchMode.externalApplication);
+      await launchUrl(uri, mode: LaunchMode.platformDefault);
     }
   }
 
@@ -76,7 +76,27 @@ class PrivacyPolicyScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 16),
                     Text(
+                      s.privacyPolicyBodyThirdPartiesTitle,
+                      style: TextStyle(fontSize: 14, color: palette.textPrimary, fontWeight: FontWeight.w700),
+                    ),
+                    const SizedBox(height: 10),
+                    Text(
+                      s.privacyPolicyBodyThirdParties,
+                      style: TextStyle(fontSize: 14, color: palette.textSecondary, height: 1.5),
+                    ),
+                    const SizedBox(height: 16),
+                    Text(
                       s.privacyPolicyBodyDataSales,
+                      style: TextStyle(fontSize: 14, color: palette.textSecondary, height: 1.5),
+                    ),
+                    const SizedBox(height: 16),
+                    Text(
+                      s.privacyPolicyBodyAdsAnalytics,
+                      style: TextStyle(fontSize: 14, color: palette.textSecondary, height: 1.5),
+                    ),
+                    const SizedBox(height: 16),
+                    Text(
+                      s.privacyPolicyBodyStorage,
                       style: TextStyle(fontSize: 14, color: palette.textSecondary, height: 1.5),
                     ),
                     const SizedBox(height: 24),
@@ -98,6 +118,14 @@ class PrivacyPolicyScreen extends StatelessWidget {
                       child: Text(
                         BrandConstants.websiteUrl,
                         style: TextStyle(fontSize: 14, color: palette.primary, decoration: TextDecoration.underline),
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    InkWell(
+                      onTap: () => _openExternal(BrandConstants.privacyPolicyUri),
+                      child: Text(
+                        BrandConstants.privacyPolicyUrl,
+                        style: TextStyle(fontSize: 12, color: palette.primary, decoration: TextDecoration.underline),
                       ),
                     ),
                     const SizedBox(height: 32),

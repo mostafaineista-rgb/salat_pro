@@ -310,7 +310,7 @@ class NotificationService {
             _tzAtSameInstant(time),
             details,
             uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
-            androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+            androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
           );
         }
       }
@@ -425,7 +425,7 @@ class NotificationService {
         when,
         _prayerNotificationDetails(strings, ongoing: false),
         uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
-        androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+        androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
       );
     } catch (e, st) {
       lastNativePostError = e.toString();

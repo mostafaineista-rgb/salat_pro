@@ -5,14 +5,27 @@
 .packages
 build/
 **/doc/api/
+**/flutter/ephemeral/
+windows/flutter/ephemeral/
+android/.cxx/
 
 # Android (machine-specific; never commit)
 android/local.properties
+android/key.properties
+**/*.jks
+**/*.keystore
+**/*.aab
 android/.kotlin/
 android/.gradle/
 android/app/debug/
 android/app/profile/
 android/app/release/
+android/app/src/main/res/raw/keep.xml
+android/app/src/main/res/raw/*.mp3
+android/app/src/main/res/raw/*.m4a
+android/app/src/main/res/raw/*.aac
+android/app/src/main/res/raw/*.wav
+android/app/src/main/res/raw/*.ogg
 
 # IDE
 .idea/

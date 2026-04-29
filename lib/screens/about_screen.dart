@@ -6,13 +6,13 @@ import 'package:salat_pro/l10n/l10n.dart';
 import 'package:salat_pro/screens/privacy_policy_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-/// Full About page: app version, FuratByte Studio identity, links, and support.
+/// Full About page: app identity, studio info, contact channels, and privacy note.
 class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});
 
   static Future<void> _openExternal(Uri uri) async {
     if (await canLaunchUrl(uri)) {
-      await launchUrl(uri, mode: LaunchMode.externalApplication);
+      await launchUrl(uri, mode: LaunchMode.platformDefault);
     }
   }
 
@@ -63,73 +63,23 @@ class AboutScreen extends StatelessWidget {
                 child: ListView(
                   padding: const EdgeInsets.fromLTRB(24, 8, 24, 32),
                   children: [
-                    FutureBuilder<PackageInfo>(
-                      future: PackageInfo.fromPlatform(),
-                      builder: (context, snap) {
-                        final v = snap.hasData ? snap.data!.version : '—';
-                        return Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              s.aboutVersionLine(v),
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w700,
-                                color: palette.textPrimary,
-                              ),
-                            ),
-                            const SizedBox(height: 8),
-                            Text(
-                              s.aboutPublishedBy(BrandConstants.studioDisplayName),
-                              style: TextStyle(fontSize: 14, color: palette.textSecondary, height: 1.4),
-                            ),
-                          ],
-                        );
-                      },
+                    _AboutHeaderCard(),
+                    const SizedBox(height: 20),
+                    _Section(
+                      title: s.aboutSalatProTitle,
+                      body: s.aboutSalatProBody,
                     ),
                     const SizedBox(height: 16),
-                    Text(
-                      BrandConstants.tagline,
-                      style: TextStyle(
-                        fontSize: 13,
-                        fontWeight: FontWeight.w600,
-                        color: palette.primary,
-                        letterSpacing: 0.6,
-                      ),
+                    _Section(
+                      title: s.aboutStudioTitle,
+                      body: s.aboutStudioBody,
                     ),
-                    const SizedBox(height: 24),
-                    Text(
-                      s.aboutStudioBlurb(BrandConstants.shortName, BrandConstants.studioDisplayName),
-                      style: TextStyle(fontSize: 14, color: palette.textSecondary, height: 1.45),
+                    const SizedBox(height: 16),
+                    _Section(
+                      title: s.aboutPrivacyNoteTitle,
+                      body: s.aboutPrivacyNoteBody,
                     ),
                     const SizedBox(height: 20),
-                    Text(
-                      s.aboutPackagePrefixLabel,
-                      style: TextStyle(
-                        fontSize: 11,
-                        letterSpacing: 1.2,
-                        color: palette.textSecondary,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    const SizedBox(height: 6),
-                    SelectableText(
-                      BrandConstants.packagePrefix,
-                      style: TextStyle(fontSize: 13, color: palette.textPrimary),
-                    ),
-                    const SizedBox(height: 8),
-                    SelectableText(
-                      BrandConstants.websiteUrl,
-                      style: TextStyle(fontSize: 13, color: palette.primary),
-                    ),
-                    const SizedBox(height: 28),
-                    _LinkTile(
-                      icon: Icons.language_outlined,
-                      title: s.labelWebsite,
-                      subtitle: BrandConstants.websiteUrl,
-                      onTap: () => _openExternal(BrandConstants.websiteUri),
-                    ),
-                    const SizedBox(height: 8),
                     _LinkTile(
                       icon: Icons.privacy_tip_outlined,
                       title: s.privacyPolicyMenu,
@@ -139,6 +89,20 @@ class AboutScreen extends StatelessWidget {
                           MaterialPageRoute<void>(builder: (_) => const PrivacyPolicyScreen()),
                         );
                       },
+                    ),
+                    const SizedBox(height: 8),
+                    _LinkTile(
+                      icon: Icons.link_outlined,
+                      title: s.privacyPolicyMenu,
+                      subtitle: BrandConstants.privacyPolicyUrl,
+                      onTap: () => _openExternal(BrandConstants.privacyPolicyUri),
+                    ),
+                    const SizedBox(height: 8),
+                    _LinkTile(
+                      icon: Icons.language_outlined,
+                      title: s.labelWebsite,
+                      subtitle: BrandConstants.websiteUrl,
+                      onTap: () => _openExternal(BrandConstants.websiteUri),
                     ),
                     const SizedBox(height: 24),
                     Text(
@@ -189,6 +153,100 @@ class AboutScreen extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class _AboutHeaderCard extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final palette = context.palette;
+    final s = context.strings;
+
+    return Container(
+      padding: const EdgeInsets.all(18),
+      decoration: BoxDecoration(
+        color: palette.surface,
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(color: palette.primary.withValues(alpha: 0.08)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          FutureBuilder<PackageInfo>(
+            future: PackageInfo.fromPlatform(),
+            builder: (context, snap) {
+              final v = snap.hasData ? snap.data!.version : '—';
+              return Text(
+                s.aboutVersionLine(v),
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w700,
+                  color: palette.textPrimary,
+                ),
+              );
+            },
+          ),
+          const SizedBox(height: 8),
+          Text(
+            s.aboutPublishedBy(BrandConstants.studioDisplayName),
+            style: TextStyle(fontSize: 13, color: palette.textSecondary, height: 1.35),
+          ),
+          const SizedBox(height: 10),
+          Text(
+            BrandConstants.tagline,
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w600,
+              color: palette.primary,
+              letterSpacing: 0.4,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _Section extends StatelessWidget {
+  const _Section({required this.title, required this.body});
+
+  final String title;
+  final String body;
+
+  @override
+  Widget build(BuildContext context) {
+    final palette = context.palette;
+    return Container(
+      padding: const EdgeInsets.all(18),
+      decoration: BoxDecoration(
+        color: palette.surface,
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(color: palette.primary.withValues(alpha: 0.05)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 13,
+              fontWeight: FontWeight.w700,
+              color: palette.textPrimary,
+              letterSpacing: 0.2,
+            ),
+          ),
+          const SizedBox(height: 10),
+          Text(
+            body,
+            style: TextStyle(
+              fontSize: 13,
+              color: palette.textSecondary,
+              height: 1.45,
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -7,7 +7,6 @@ class UpdateManifest {
   const UpdateManifest({
     required this.build,
     required this.version,
-    this.androidApkUrl,
     this.windowsInstallerUrl,
     this.iosAppStoreOrDownloadUrl,
     this.releaseNotes,
@@ -15,7 +14,6 @@ class UpdateManifest {
 
   final int build;
   final String version;
-  final String? androidApkUrl;
   final String? windowsInstallerUrl;
   final String? iosAppStoreOrDownloadUrl;
   final String? releaseNotes;
@@ -36,7 +34,6 @@ class UpdateManifest {
       return UpdateManifest(
         build: buildNum,
         version: v,
-        androidApkUrl: m['android_apk_url'] as String?,
         windowsInstallerUrl: m['windows_installer_url'] as String?,
         iosAppStoreOrDownloadUrl: m['ios_url'] as String?,
         releaseNotes: m['release_notes'] as String?,

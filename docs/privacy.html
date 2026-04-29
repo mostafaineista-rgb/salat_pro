@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Salat Pro — Privacy Policy</title>
+    <meta name="description" content="Privacy Policy for Salat Pro." />
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #0d1514;
+        --card: rgba(255, 255, 255, 0.06);
+        --text: rgba(255, 255, 255, 0.92);
+        --muted: rgba(255, 255, 255, 0.74);
+        --accent: #2bb673;
+        --border: rgba(255, 255, 255, 0.12);
+        --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      }
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg: #f7faf9;
+          --card: #ffffff;
+          --text: #0b1211;
+          --muted: rgba(11, 18, 17, 0.72);
+          --border: rgba(11, 18, 17, 0.10);
+        }
+      }
+      body {
+        margin: 0;
+        font-family: var(--sans);
+        background: radial-gradient(1200px 600px at 20% 0%, rgba(43, 182, 115, 0.15), transparent 60%),
+          radial-gradient(1000px 500px at 80% 10%, rgba(30, 86, 73, 0.18), transparent 55%),
+          var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
+      .wrap {
+        max-width: 920px;
+        margin: 0 auto;
+        padding: 32px 20px 60px;
+      }
+      header {
+        padding: 18px 18px 10px;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        background: var(--card);
+        backdrop-filter: blur(10px);
+      }
+      h1 {
+        margin: 0;
+        font-size: 28px;
+        letter-spacing: 0.2px;
+      }
+      .sub {
+        margin: 6px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      section {
+        margin-top: 18px;
+        padding: 18px;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        background: var(--card);
+      }
+      h2 {
+        margin: 0 0 10px;
+        font-size: 16px;
+        letter-spacing: 0.2px;
+      }
+      p {
+        margin: 0 0 10px;
+        color: var(--muted);
+      }
+      ul {
+        margin: 8px 0 0 18px;
+        color: var(--muted);
+      }
+      li { margin: 6px 0; }
+      a { color: var(--accent); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      code {
+        font-family: var(--mono);
+        font-size: 12px;
+        padding: 2px 6px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: rgba(0,0,0,0.12);
+      }
+      footer {
+        margin-top: 18px;
+        padding: 14px 18px;
+        color: var(--muted);
+        font-size: 12px;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        background: var(--card);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1>Salat Pro — Privacy Policy</h1>
+        <p class="sub">
+          Effective date: <span id="date"></span> · Publisher: Furatbyte Studio
+        </p>
+      </header>
+
+      <section>
+        <h2>Summary</h2>
+        <p>
+          Salat Pro is designed to work primarily on-device. We do not sell personal data and we do not run in-app ads.
+          Some features make network requests to public services to provide results (e.g., nearby mosques, weather, city search).
+        </p>
+      </section>
+
+      <section>
+        <h2>Data we use</h2>
+        <ul>
+          <li><strong>Location (optional)</strong>: used to compute prayer times, Qibla direction, find nearby mosques, and fetch optional weather.</li>
+          <li><strong>Notifications</strong>: prayer alerts are scheduled locally on your device when you enable them.</li>
+          <li><strong>Local storage</strong>: your preferences may be saved locally (e.g., calculation method, selected sound) to improve the experience.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Third-party services</h2>
+        <p>When you use certain features, the app may send requests to public services. Depending on the feature, requests may include your search text or location coordinates.</p>
+        <ul>
+          <li><strong>OpenStreetMap Nominatim</strong>: city/address search (query text).</li>
+          <li><strong>Overpass API (OpenStreetMap)</strong>: nearby mosques (location coordinates in the query).</li>
+          <li><strong>Open‑Meteo</strong>: optional weather (location coordinates).</li>
+          <li><strong>Hadith source via CDN/GitHub</strong>: downloads content for hadith features.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Advertising, selling, and tracking</h2>
+        <ul>
+          <li>We do not sell personal information.</li>
+          <li>We do not show in-app ads.</li>
+          <li>We do not use advertising ID or cross-app tracking SDKs.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Contact</h2>
+        <p>
+          For privacy questions, email
+          <a href="mailto:privacy@furatbyte.com">privacy@furatbyte.com</a>.
+        </p>
+        <p>
+          Website: <a href="https://furatbyte.com">furatbyte.com</a>
+        </p>
+      </section>
+
+      <footer>
+        Tip for Play Console: paste this page URL into the “Privacy policy” field. Keep it publicly accessible over HTTPS.
+        App id: <code>com.salatpro.salat_pro</code>
+      </footer>
+    </div>
+
+    <script>
+      const d = new Date();
+      document.getElementById("date").textContent = d.toISOString().slice(0, 10);
+    </script>
+  </body>
+</html>
+

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:salat_pro/utils/platform_support.dart';
 
-/// Requests Android runtime permissions needed for location, alerts, and exact alarms.
+/// Requests Android runtime permissions needed for location and alerts.
 Future<void> requestAndroidPrayerPermissions() async {
   if (kIsWeb || defaultTargetPlatform != TargetPlatform.android) return;
 
@@ -15,10 +15,6 @@ Future<void> requestAndroidPrayerPermissions() async {
   var notif = await Permission.notification.status;
   if (!notif.isGranted) {
     notif = await Permission.notification.request();
-  }
-
-  if (await Permission.scheduleExactAlarm.isDenied) {
-    await Permission.scheduleExactAlarm.request();
   }
 }
 

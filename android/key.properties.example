@@ -1,0 +1,7 @@
+## Copy to android/key.properties (DO NOT COMMIT that file)
+## Path can be relative to the android/ folder or absolute.
+storeFile=../upload-keystore.jks
+storePassword=CHANGE_ME
+keyPassword=CHANGE_ME
+keyAlias=upload
+

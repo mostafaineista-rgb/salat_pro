@@ -95,7 +95,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   Future<void> _openBrandUri(Uri uri) async {
     if (await canLaunchUrl(uri)) {
-      await launchUrl(uri, mode: LaunchMode.externalApplication);
+      await launchUrl(uri, mode: LaunchMode.platformDefault);
     }
   }
 
@@ -213,6 +213,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
       if (st.remote == null) return;
       final remote = st.remote!;
       final isIos = defaultTargetPlatform == TargetPlatform.iOS;
+      final isAndroid = defaultTargetPlatform == TargetPlatform.android;
+      final isWindows = defaultTargetPlatform == TargetPlatform.windows;
       final notes = remote.releaseNotes;
       await showDialog<void>(
         context: context,
@@ -239,7 +241,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   unawaited(_runInstallWithProgress(s, remote));
                 },
                 child: Text(
-                  isIos ? s.updateOpenInBrowser : s.updateDownloadInstall,
+                  isAndroid
+                      ? s.updateOpenPlayStore
+                      : isIos
+                          ? s.updateOpenInBrowser
+                          : isWindows
+                              ? s.updateDownloadInstall
+                              : s.updateOpenInBrowser,
                 ),
               ),
             ],
@@ -260,6 +268,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   Future<void> _runInstallWithProgress(AppStrings s, UpdateManifest m) async {
+    final isWindows = defaultTargetPlatform == TargetPlatform.windows;
+    if (!isWindows) {
+      // Android opens Play Store; iOS opens App Store / browser. No download progress needed.
+      await AppUpdateService.installLatest(m);
+      return;
+    }
     showDialog<void>(
       context: context,
       barrierDismissible: false,

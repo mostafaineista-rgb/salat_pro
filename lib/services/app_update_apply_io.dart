@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:app_installer/app_installer.dart';
 import 'package:http/http.dart' as http;
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 import 'package:salat_pro/services/app_update_types.dart';
@@ -35,15 +35,14 @@ Future<String> _downloadToSupportDir(String downloadUrl) async {
 /// downloaded installer; iOS opens a browser/App Store [url] only.
 Future<void> installFromManifest(UpdateManifest manifest) async {
   if (Platform.isAndroid) {
-    final u = manifest.androidApkUrl;
-    if (u == null || u.isEmpty) {
-      throw StateError('android_apk_url missing in update manifest');
+    final pkg = (await PackageInfo.fromPlatform()).packageName;
+    final market = Uri.parse('market://details?id=$pkg');
+    final web = Uri.parse('https://play.google.com/store/apps/details?id=$pkg');
+    final ok = await launchUrl(market, mode: LaunchMode.externalApplication) ||
+        await launchUrl(web, mode: LaunchMode.externalApplication);
+    if (!ok) {
+      throw StateError('Could not open Play Store listing');
     }
-    final path = await _downloadToSupportDir(u);
-    if (!File(path).existsSync()) {
-      throw StateError('APK not found after download');
-    }
-    await AppInstaller.installApk(path);
     return;
   }
 
